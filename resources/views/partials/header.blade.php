@@ -5,10 +5,9 @@
         </div>
         <nav>
             <ul class="d-flex flex-wrap align-items-center list-unstyled">
-                {{-- @foreach (config('partials.navLinks') as $link)
+                @foreach (config('partials.navLinks') as $link)
                 <li class="pe-4"><a href="#">{{$link}}</a></li>
-                @endforeach --}}
-                <li>ciao</li>
+                @endforeach
             </ul>
         </nav>
     </div>

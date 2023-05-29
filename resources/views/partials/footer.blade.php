@@ -1,17 +1,14 @@
 <footer>
     <div class="container h-100 d-flex justify-content-between">
      <div class="text-white h-100 w-50 gy-3 d-flex flex-column flex-wrap">
-        {{-- @foreach (config('partials.footerlinks') as $link )
+        @foreach (config('partials.footerlinks') as $link )
          <ul class="py-1 small list-unstyled mb-0">
             <li class="fw-bold pb-1 fs-6">{{ $link['title'] }} </li>
             @foreach ($link['topics'] as $topic)
             <li><a class="text-white text-decoration-none" href="#">{{ $topic }}</a></li>
             @endforeach
          </ul>
-        @endforeach --}}
-        <ul>
-            <li>ciao</li>
-        </ul>
+        @endforeach
      </div>
      <div class="w-25"><img src="/image/dc-logo-bg.png" alt="logo"></div>
     </div>
