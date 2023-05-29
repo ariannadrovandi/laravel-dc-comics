@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('series', 255);
             $table->string('sale_date', 20);
             $table->string('type', 255);
-            $table->string('artists', 255);
+            $table->text('artists');
             $table->string('writers', 255);
             $table->timestamps();
         });
