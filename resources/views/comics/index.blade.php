@@ -12,6 +12,8 @@
                             <h5 class="card-title"> {{ $comic->title }}</h5>
                             {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                             <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Vai  al dettaglio</a>
+                            <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning">Modifica</a>
+
                         </div>
                     </div>
                 </div>
