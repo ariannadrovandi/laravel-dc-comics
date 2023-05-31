@@ -50,7 +50,7 @@ class ComicController extends Controller
         // $newComic->writers = $form_data['writers'];
         $newComic->fill($form_data);
         $newComic->save();
-        return redirect()->route('comics.show', $newComic->id);
+        return redirect()->route('comics.show')->with('message', "Il comic con id {$newComic->id} è stato salvato con successo");
     }
 
     /**

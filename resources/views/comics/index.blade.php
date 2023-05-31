@@ -3,6 +3,11 @@
 @section('content')
     <section class="container">
         <h1 style="margin-bottom: 35px">Comics</h1>
+        @if (session()->has('message'))
+            <div class="allert allert-success">
+                {{session()->get('message')}}
+            </div>
+        @endif
         <div class="row gy-4">
             @foreach ($comics as $comic)
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -18,9 +23,9 @@
                     </div>
                 </div>
             @endforeach
-            <a style="width: 5vw" class="btn btn-primary {{ Route::currentRouteName() == 'comics.create' ? 'active' : '' }}" href="{{ route('comics.create') }}">Create</a>
+            <div>
+                <a style="width: 5vw; height: 40px" class="btn btn-primary {{ Route::currentRouteName() == 'comics.create' ? 'active' : '' }}" href="{{ route('comics.create') }}">Create</a>
+            </div>
         </div>
-
-
     </section>
 @endsection
