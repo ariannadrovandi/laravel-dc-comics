@@ -3,6 +3,14 @@
 @section('content')
     <section class="container">
         <h1 style="margin-bottom: 35px">Comics</h1>
+        <form class="my-5" action="{{route('comics.index')}}" method="GET">
+            <select name="type" id="type">
+                <option value="">all</option>
+                <option value="comic_book">comic book</option>
+                <option value="graphic_novel">graphic novel</option>
+            </select>
+            <button type="submit">Cerca</button>
+        </form>
         @if (session()->has('message'))
             <div class="allert allert-success">
                 {{session()->get('message')}}

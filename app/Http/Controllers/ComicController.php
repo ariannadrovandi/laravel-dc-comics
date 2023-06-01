@@ -10,11 +10,19 @@ class ComicController extends Controller
     /**
      * Display a listing of the resource.
      *
-     *
+     * @param \Illuminate\Http\Request $request
      */
-    public function index()
+    public function index(Request $request)
     {
-        $comics = Comic::all();
+        $search = $request->query('type');
+        // dd($request->query('type'));
+        if($search){
+            $comics = Comic::where('type', $search)->get();
+        }else{
+            $comics = Comic::all();
+        }
+
+
         return view('comics.index', compact('comics'));
     }
 

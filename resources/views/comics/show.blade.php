@@ -9,7 +9,7 @@
                 <h5 class="card-title"> {{ $comic->title }}</h5>
                 <p class="card-text">{!! $comic->description !!}</p>
                 <p class="card-text">
-                    <strong>Price:</strong> {{ $comic->price }} <br> <strong>Series:</strong> {{ $comic->series }} <br> <strong>Sale date:</strong> {{ $comic->sale_date }} <br> <strong>Type:</strong> {{ $comic->type }} <br> <strong>Artists:</strong> {{ $comic->srtists }} <br> <strong>Writers:</strong> {{ $comic->writers}}
+                    - <strong>Price:</strong> {{ $comic->price }} <br> - <strong>Series:</strong> {{ $comic->series }} <br> - <strong>Sale date:</strong> {{ $comic->sale_date }} <br> - <strong>Type:</strong> {{ $comic->type }} <br> - <strong>Artists:</strong> {{ $comic->srtists }} <br> - <strong>Writers:</strong> {{ $comic->writers}}
                 </p>
             </div>
         </div>
