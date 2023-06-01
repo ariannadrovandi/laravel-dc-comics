@@ -18,6 +18,12 @@
                             {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                             <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Vai  al dettaglio</a>
                             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning">Modifica</a>
+                            <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button btn btn-danger ms-3" data-item-title="{{$comic->title}}">Cancella</button>
+
+                            </form>
 
                         </div>
                     </div>
@@ -28,4 +34,5 @@
             </div>
         </div>
     </section>
+    @include('partials.popupdelete');
 @endsection

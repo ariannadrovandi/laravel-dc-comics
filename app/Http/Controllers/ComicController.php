@@ -100,8 +100,9 @@ class ComicController extends Controller
      * @param  int  $id
      *
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index')->with('message', "Comic with id: {$comic->id} cancellato con successo!");
     }
 }
