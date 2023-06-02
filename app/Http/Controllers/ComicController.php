@@ -2,33 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Comic;
-
+use Illuminate\Http\Request;
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param \Illuminate\Http\Request $request
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->query('type');
-        // dd($request->query('type'));
-        if($search){
-            $comics = Comic::where('type', $search)->get();
-        }else{
-            $comics = Comic::all();
-        }
-
-
-        return view('comics.index', compact('comics'));
+        $data = [
+            'comics' => Comic::all()
+        ];
+        return view('comics.index', $data);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      *
      */
     public function create()
@@ -40,44 +33,31 @@ class ComicController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     *
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        //dd($request->all());
-        $form_data = $request->all();
-        $newComic = new Comic();
-        // $newComic->title = $form_data['title'];
-        // $newComic->description = $form_data['description'];
-        // $newComic->thumb = $form_data['thumb'];
-        // $newComic->price = $form_data['price'];
-        // $newComic->series = $form_data['series'];
-        // $newComic->sale_date = $form_data['sale_date'];
-        // $newComic->type = $form_data['type'];
-        // $newComic->artists = $form_data['artists'];
-        // $newComic->writers = $form_data['writers'];
-        $newComic->fill($form_data);
-        $newComic->save();
-        return redirect()->route('comics.show')->with('message', "Il comic con id {$newComic->id} è stato salvato con successo");
+        $form_data = $request->validated();
+
+        $newcomic = new Comic();
+        $newcomic->fill($form_data);
+        $newcomic->save();
+        return redirect()->route('comics.show', $newcomic->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     *
+     * @param  \App\Models\Comic  $comic
      */
     public function show(Comic $comic)
     {
-        //$comics = Comic::findOrFail($id);
         return view('comics.show', compact('comic'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     *
+     * @param  \App\Models\Comic  $comic
      */
     public function edit(Comic $comic)
     {
@@ -88,29 +68,25 @@ class ComicController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     *
+     * @param  \App\Models\Comic  $comic
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        //dd($form_data);
-        $data_form = $request->all();
-         // $comic = Comic::findOrFail($id);
+        $data_form = $request->validated();
         $comic->update($data_form);
         $comic->save();
         return redirect()->route('comics.show', $comic->id);
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Comic  $comic
      *
      */
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('comics.index')->with('message', "Comic with id: {$comic->id} cancellato con successo!");
+        return redirect()->route('comics.index')->with('message', "{$comic->title} eliminato con successo");
     }
 }

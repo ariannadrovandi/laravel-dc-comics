@@ -7,8 +7,7 @@
             <h3 class="py-3 text-center text-primary">Inserisci un nuovo fumetto</h3>
             <div class="mb-3">
                 <label for="title" class="form-label">Inserisci il titolo</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title')}}" placeholder="Inserisci qui il titolo"
-                    required maxlength="150">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title')}}" placeholder="Inserisci qui il titolo" required maxlength="150">
             </div>
             @error('title')
             <div class="alert alert-danger">
@@ -17,7 +16,7 @@
             @enderror
             <div class="mb-3">
                 <label for="description" class="form-label">Inserisci la descrizione</label>
-                <textarea required class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="9">
+                 <textarea required class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="9" placeholder="Inserisci la descrizione">
                     {{old('description')}}
                 </textarea>
             </div>
@@ -28,7 +27,7 @@
             @enderror
             <div class="mb-3">
                 <label for="thumb" class="form-label">Inserisci l'url dell'immagine</label>
-                <textarea required class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" rows="5">
+                 <textarea required class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" rows="9" placeholder="Inserisci ll'url dell'immagine">
                     {{old('thumb')}}
                 </textarea>
             </div>
@@ -40,8 +39,7 @@
             <div class="row mb-3">
                 <div class="col">
                     <label for="price" class="form-label">Inserisci il prezzo</label>
-                    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{old('price')}}"
-                        placeholder="Inserisci qui il prezzo" required maxlength="30">
+                    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci qui il prezzo" required maxlength="30">
                 </div>
                 @error('price')
                 <div class="alert alert-danger">
@@ -50,8 +48,7 @@
                 @enderror
                 <div class="col">
                     <label for="series" class="form-label">Inserisci la serie</label>
-                    <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series"
-                    value="{{old('series')}}" placeholder="Inserisci qui la serie" required maxlength="70">
+                    <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" value="{{old('series')}}" placeholder="Inserisci qui la serie" required maxlength="70">
                 </div>
                 @error('series')
                 <div class="alert alert-danger">
@@ -62,8 +59,7 @@
             <div class="row mb-3">
                 <div class="col">
                     <label for="sale_date" class="form-label">Inserisci la data di uscita</label>
-                    <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date"
-                    value="{{old('date')}}" placeholder="Inserisci qui la data di uscita" required>
+                    <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" value="{{old('date')}}" placeholder="Inserisci qui la data di uscita" required>
                 </div>
                 @error('sale_date')
                 <div class="alert alert-danger">
@@ -72,8 +68,7 @@
                 @enderror
                 <div class="col">
                     <label for="type" class="form-label">Inserisci il genere</label>
-                    <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type"
-                    value="{{old('type')}}" placeholder="Inserisci qui il genere" required maxlength="70">
+                    <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" value="{{old('type')}}" placeholder="Inserisci qui il genere" required maxlength="70">
                 </div>
                 @error('type')
                 <div class="alert alert-danger">
@@ -83,7 +78,7 @@
             </div>
             <div class="mb-3">
                 <label for="artists" class="form-label">Inserisci l'artista/gli artisti</label>
-                <textarea required class="form-control @error('artists') is-invalid @enderror" id="artists" name="artists" rows="5">
+                <textarea requiredclass="form-control @error('artists') is-invalid @enderror" id="artists" name="artists" rows="5">
                     {{old('thumb')}}
                 </textarea>
             </div>
