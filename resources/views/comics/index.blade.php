@@ -6,8 +6,8 @@
         <form class="my-5" action="{{route('comics.index')}}" method="GET">
             <select name="type" id="type">
                 <option value="">all</option>
-                <option value="comic_book">comic book</option>
-                <option value="graphic_novel">graphic novel</option>
+                <option value="comic book">comic book</option>
+                <option value="graphic novel">graphic novel</option>
             </select>
             <button type="submit">Cerca</button>
         </form>
